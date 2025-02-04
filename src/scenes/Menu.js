@@ -5,19 +5,13 @@ class Menu extends Phaser.Scene {
 
     preload(){
         //all the loading stuff goes here
-        
+        this.load.image('Road', './Assets/Road.png')
+        this.load.image('RoadYellow', './Assets/RoadYellow.png')
+
     }
 
     create(){
-        this.anims.create({
-            key: 'explode',
-            frames: this.anims.generateFrameNumbers('explosion', {
-                    start: 0, 
-                    end: 9,
-                    first: 0
-                }),
-            frameRate: 30
-        })
+        
 
         let menuConfig = {
             fontFamily: 'Courier',
@@ -35,8 +29,8 @@ class Menu extends Phaser.Scene {
         //this.scene.start("playScene")
 
         //menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Rocket Patrol', menuConfig).setOrigin(0.5)
-        this.add.text(game.config.width/2, game.config.height/2 , 'Use ← → arrows to move & F to fire', menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Cubicle Collateral', menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/2 , 'Use ← → arrows to move & space to stop', menuConfig).setOrigin(0.5)
         menuConfig.backgroundColor = '#00ff00'
         menuConfig.color = '#000000'
         this.add.text(game.config.width/2, game.config.height/2+ borderUISize + borderPadding, 'Press ← for novice or → for Expert', menuConfig).setOrigin(0.5)
@@ -53,7 +47,7 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed:3,
                 gameTimer: 60000
             }
-            this.sound.play('sfx-select')
+            //this.sound.play('sfx-select')
             this.scene.start('playScene')
         }
 
@@ -63,7 +57,7 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed:4,
                 gameTimer: 45000
             }
-            this.sound.play('sfx-select')
+            //this.sound.play('sfx-select')
             this.scene.start('playScene')
         }
     }
