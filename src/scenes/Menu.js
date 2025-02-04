@@ -29,11 +29,11 @@ class Menu extends Phaser.Scene {
         //this.scene.start("playScene")
 
         //menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Cubicle Collateral', menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/3, 'Cubicle Collateral', menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2 , 'Use ← → arrows to move & space to stop', menuConfig).setOrigin(0.5)
         menuConfig.backgroundColor = '#00ff00'
         menuConfig.color = '#000000'
-        this.add.text(game.config.width/2, game.config.height/2+ borderUISize + borderPadding, 'Press ← for novice or → for Expert', menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/3*2, 'Press ← for novice or → for Expert', menuConfig).setOrigin(0.5)
 
         //keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT)

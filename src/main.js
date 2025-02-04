@@ -1,7 +1,7 @@
 /*
 Name: Kiril Saltz
 Project title: Cubicle Collateral
-Hours: 0
+Hours: 3
 creative tilt:
 Sources:
 Music: made in Beepbox
@@ -14,8 +14,10 @@ in game music and art is made by me
 //game/phaser config
 let config = {
     type: Phaser.AUTO,
-    width: 640,
-    height: 480,
+    width: 840,
+    height: 640,
+    pixleArt: true,
+    backgroundColor: '#87CEEB',
     scene: [Menu, Play]
 }
 
@@ -26,4 +28,4 @@ let game = new Phaser.Game(config)
 
 
 //keyboard
-let keySPACE, keyRESET, keyLEFT, keyRIGHT
+let keySTOP, keyRESET, keyLEFT, keyRIGHT

@@ -6,22 +6,38 @@ class Play extends Phaser.Scene {
     create(){
 
 
-        this.add.text(20, 20, "Rocket Patrol Menu")
+        //this.add.text(20, 20, "Rocket Patrol Menu")
 
         //background
         
+        //grass
+        this.add.rectangle(0,game.config.height/2, game.config.width, game.config.height/2, 0x3f9b0b).setOrigin(0,0)
 
         
 
         //game assets
         
         //init road
-        
+        let roadCount = 500
+        this.roads = []
+        for (let i = 0; i < roadCount; i++) {
+            let road
+            //every other n switch from using the yellow road to the non yellow road
+            if (Math.floor(i/25)%2 == 0) {
+                road = new RoadPart(this,game.config.width/2,game.config.height/2,'RoadYellow',0)
+            }else{
+                road = new RoadPart(this,game.config.width/2,game.config.height/2,'Road',0)
+            }
+            
 
+            road.zValu = i+1
+
+            this.roads.push(road)
+        }
         
 
         //inputs
-        keyFIRE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
+        keySTOP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
         keyRESET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT)
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
@@ -40,9 +56,8 @@ class Play extends Phaser.Scene {
             },
             fixedWidth:100
         }
-        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig)
+        //this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig)
 
-        this.timeRight = this.add.text(game.config.width - borderUISize*4.5, borderUISize + borderPadding*2, this.p1Score, scoreConfig)
 
         this.gameOver = false
         
@@ -67,7 +82,12 @@ class Play extends Phaser.Scene {
 
         if (!this.gameOver) {
             //while game is still running
+            for (let i = 0; i < this.roads.length; i++) {
+                let road = this.roads[i]
+                road.update()
+            }
         }
+        console.log(game.loop.actualFps)
 
     }
 
