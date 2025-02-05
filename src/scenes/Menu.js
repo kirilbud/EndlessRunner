@@ -7,6 +7,8 @@ class Menu extends Phaser.Scene {
         //all the loading stuff goes here
         this.load.image('Road', './Assets/Road.png')
         this.load.image('RoadYellow', './Assets/RoadYellow.png')
+        this.load.image('tree', './Assets/Tree.png')
+        this.load.image('waterCooler', './Assets/WaterCooler.png')
 
     }
 
@@ -25,8 +27,6 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth:0
         }
-        //this.add.text(20, 20, "Rocket Patrol Menu")
-        //this.scene.start("playScene")
 
         //menu text
         this.add.text(game.config.width/2, game.config.height/3, 'Cubicle Collateral', menuConfig).setOrigin(0.5)

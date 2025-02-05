@@ -35,6 +35,23 @@ class Play extends Phaser.Scene {
             this.roads.push(road)
         }
         
+        //init trees
+        let treeCount = 500
+        this.trees = []
+        for (let i = 0; i < treeCount; i++) {
+            let tree
+            if (Math.random()>.5) {
+                tree = new TreePart(this,game.config.width/2+10000 + Math.random()*50000,game.config.height/2,'tree',0)
+            }else{
+                tree = new TreePart(this,game.config.width/2-10000 - Math.random()*50000,game.config.height/2,'tree',0)
+            }
+            
+
+            tree.zValu = Math.random()*500
+
+            this.trees.push(tree)
+        }
+
 
         //inputs
         keySTOP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
@@ -86,6 +103,13 @@ class Play extends Phaser.Scene {
                 let road = this.roads[i]
                 road.update()
             }
+
+            for (let i = 0; i < this.trees.length; i++) {
+                let tree = this.trees[i]
+                tree.update()
+            }
+
+            //console.log(this.trees[2].x)
         }
         console.log(game.loop.actualFps)
 

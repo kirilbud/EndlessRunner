@@ -1,12 +1,12 @@
 /*
 Name: Kiril Saltz
 Project title: Cubicle Collateral
-Hours: 3
+Hours: 5
 creative tilt:
 Sources:
 Music: made in Beepbox
 sfx: made in sfxr.me
-Sprites: Made in Aseprite
+Sprites: Made in Aseprite and Blender
 in game music and art is made by me
 */
 
@@ -16,7 +16,7 @@ let config = {
     type: Phaser.AUTO,
     width: 840,
     height: 640,
-    pixleArt: true,
+    pixelArt: true,
     backgroundColor: '#87CEEB',
     scene: [Menu, Play]
 }
