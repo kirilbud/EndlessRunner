@@ -25,6 +25,9 @@ class Menu extends Phaser.Scene {
         this.load.audio('idle', './Assets/idle.wav')
         this.load.audio('push', './Assets/push.wav')
         this.load.audio('stop', './Assets/stop_01.wav')
+        this.load.audio('select', './Assets/select.wav')
+        this.load.audio('hit', './Assets/hit.wav')
+
 
         //music
         this.load.audio('music', './Assets/RollinDownhill.wav') //not my best work but i tried :(
@@ -69,12 +72,13 @@ class Menu extends Phaser.Scene {
         if(Phaser.Input.Keyboard.JustDown(keySTOP)){
             //easy
 
-            //this.sound.play('sfx-select')
+            this.sound.play('select')
             this.scene.start('playScene')
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyRIGHT)){
             this.scene.start('creditsScene')
+            this.sound.play('select')
         }
     }
 }

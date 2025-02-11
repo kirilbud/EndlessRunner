@@ -78,7 +78,7 @@ class Play extends Phaser.Scene {
 
         //score stuff
         this.p1Score = 0
-        let scoreConfig = {
+        this.scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
             backgroundColor: '#FACADE',
@@ -88,9 +88,9 @@ class Play extends Phaser.Scene {
                 top: 5,
                 bottom: 5,
             },
-            fixedWidth:100
+            // fixedWidth:100
         }
-        this.middleScore = this.add.text(game.config.width/2, 20, this.p1Score, scoreConfig).setOrigin(.5,.5)
+        this.middleScore = this.add.text(game.config.width/2, 20, this.p1Score, this.scoreConfig).setOrigin(.5,.5)
 
 
         this.gameSpeed = 20
@@ -128,7 +128,6 @@ class Play extends Phaser.Scene {
         
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyRESET)) {
-            
             this.scene.restart()
         }
 
@@ -174,11 +173,17 @@ class Play extends Phaser.Scene {
         let dist = player.x-object.x
         dist = Math.abs(dist)
         if (dist < object.width) {
+            this.sound.play('hit')
             //console.log('crash')
             this.music.stop()
             this.gameOver = true
             this.player.anims.stop()
             this.player.rolling.stop()
+
+
+            this.add.text(game.config.width/2, game.config.height/4, 'oh no!', this.scoreConfig).setOrigin(0.5).setDepth(1000)
+            this.add.text(game.config.width/2, game.config.height/4*2, 'Well at least you made it ' + (String(Math.floor(this.p1Score/6))+ "m"), this.scoreConfig).setOrigin(0.5).setDepth(1000)
+            this.add.text(game.config.width/2, game.config.height/4*3, 'R to Restart or ← for menu', this.scoreConfig).setOrigin(0.5).setDepth(1000)
         }
         
     }
