@@ -29,7 +29,7 @@ class Credits extends Phaser.Scene {
         //menu text
         menuConfig.color = '#000000'
         this.add.text(game.config.width/2, game.config.height/8, 'CREDITS:', menuConfig).setOrigin(0.5)
-        this.add.text(game.config.width/2, game.config.height/8*2, 'Made by Kiril Salts', menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/8*2, 'Made by Kiril Saltz', menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/8*3, 'Art assets made in both Blender and Aseprite', menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/8*4, '3d model textures found on Wikipedia Creative Commons', menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/8*5, 'Music made in Beepbox', menuConfig).setOrigin(0.5)
