@@ -1,12 +1,12 @@
 /*
 Name: Kiril Saltz
 Project title: Cubicle Collateral
-Hours: 5
-creative tilt:
+Hours: 17
+creative tilt: used 1 point perspective projection to emulate 3d
 Sources:
 Music: made in Beepbox
 sfx: made in sfxr.me
-Sprites: Made in Aseprite and Blender
+Sprites: Made in Aseprite and Blender (textures used in blender are from wikicommons)
 in game music and art is made by me
 */
 
@@ -18,7 +18,13 @@ let config = {
     height: 640,
     pixelArt: true,
     backgroundColor: '#87CEEB',
-    scene: [Menu, Play]
+    physics: {
+        default: "arcade",
+        arcade: {
+            debug: false
+        }
+    },
+    scene: [Menu, Play, Credits]
 }
 
 

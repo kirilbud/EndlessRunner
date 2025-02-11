@@ -9,16 +9,19 @@ class RoadPart extends Phaser.GameObjects.Sprite{
         //this.sfxShot = scene.sound.add('sfx-shot',{volume: 0.3})
         this.zValu = 0
 
+        //this.currentScene = scene
+
         this.setOrigin(.5,0)
+        
     }
 
     update(){
         this.setDepth(500 - this.zValu)
         this.scale = 1/this.zValu*200
         this.y = (1/this.zValu)*5000 + (game.config.height/2) -10
-        //console.log(this.y)
+        //console.log(this.scene.gameSpeed)
 
-        this.zValu -= .2 
+        this.zValu -= this.scene.gameSpeed * this.scene.deltaTime
         if (this.zValu <= 0) {
             this.zValu = 500
         }

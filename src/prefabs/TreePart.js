@@ -21,7 +21,7 @@ class TreePart extends Phaser.GameObjects.Sprite{
         this.x = this.xValu*(1/this.zValu)*1 + game.config.width/2 
         //console.log(this.y)
 
-        this.zValu -= .2 
+        this.zValu -= this.scene.gameSpeed * this.scene.deltaTime
         if (this.zValu <= 0) {
             this.zValu = 500
         }
