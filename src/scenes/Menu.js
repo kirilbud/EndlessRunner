@@ -16,7 +16,7 @@ class Menu extends Phaser.Scene {
 
 
         //player
-        this.load.spritesheet('player', './Assets/FullSpriteSheet.png',{
+        this.load.spritesheet('player', './Assets/FullSpritesheet.png',{
             frameWidth: 126,
             frameHeight: 100,
         })
